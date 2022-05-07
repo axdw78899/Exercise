@@ -1,7 +1,7 @@
 #include<stdio.h>
 #include<stdlib.h>
 int main(){
-	struct student
+	struct data
 	{
     	char name[10];
     	int math;
