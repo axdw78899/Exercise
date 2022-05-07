@@ -1,14 +1,14 @@
 #include<stdio.h>
 #include<stdlib.h>
 int main(){
-	struct data
+	struct student
 	{
     	char name[10];
     	int math;
     	int eng;
-	} student,*ptr; //structÅÜ¼Æ student,¥H¤Î«ü¦V structÅÜ¼Æ ªº«ü¼Ðptr 
+	} student,*ptr; //structè®Šæ•¸ student,ä»¥åŠæŒ‡å‘ structè®Šæ•¸ çš„æŒ‡æ¨™ptr 
 	
-	ptr=&student;//ptr«ü¦V structÅÜ¼Æ student;
+	ptr=&student;//ptræŒ‡å‘ structè®Šæ•¸ student;
 	printf("name:");
 	gets(ptr->name);
 
