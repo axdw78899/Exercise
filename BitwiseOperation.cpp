@@ -1,4 +1,5 @@
-#include<stdio.h>
+#include <stdio.h>
+#include <string.h>
 int check_n_one(int a);//有多少1 
 int set_n_bit_1(int a,int n);//強制標記成1
 int set_n_bit_reverse(int a,int n);//反轉位元0或1
@@ -8,6 +9,8 @@ int getHibit(int x);//找到最高位的1
 void ten_to_two(int a);//十轉二進位 
 int clear_low_1_bit(int a);//消去最低位的1
 bool IsPowerBy2(int n);//是否是2的平方 
+int ABC_tolower(int c);//小寫轉換 
+int ABC_toupper(int c);//大寫轉換 
 int main(){
 	int x=18;
 	int i=0,a[32];
@@ -32,8 +35,22 @@ int main(){
 	printf("最高位的1在第 %d \n",getHibit(x));
 	printf("總共有 %d 個1\n",check_n_one(x));
 	printf("是否是2的平方: %d\n",IsPowerBy2(x));
-		
-
+	printf("*****************************\n");
+	char c[]="ABCDefgh";
+	int length = sizeof(c)/sizeof(c[0]);
+    for(i = 0; i < length; i++) {
+        printf("%c ", c[i]);
+    }
+    printf("\n陣列長度 %d\n", length);
+    printf("大轉小寫:\n");
+    for(i = 0; i < length; i++){
+        printf("%c ", ABC_tolower(c[i]));
+	}
+    printf("\n小轉大寫:\n");
+    for(i = 0; i < length; i++){
+        printf("%c ", ABC_toupper(c[i]));
+	}
+    
 	return 0;
 }
 
@@ -82,6 +99,13 @@ int clear_low_1_bit(int a){
 bool IsPowerBy2(int a){//是否是2的平方
 	return a>0 && (a&a-1) ==0;
 } 
+//大小寫轉換 
+int ABC_tolower(int c){
+	return (c >= 'A' && c <= 'Z') ? c ^ 32 : c;
+}
+int ABC_toupper(int c){
+	return (c >= 'a' && c <= 'z') ? c ^ 32 : c;
+}
 //十轉二進位 
 void ten_to_two(int a){
 	int i=0,n,count[32];
