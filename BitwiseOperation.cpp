@@ -8,23 +8,33 @@ int check_n_one(int a){
 	return number;
 }
 
-//±j¨î¼Ğ°O¦¨1
+//å¼·åˆ¶æ¨™è¨˜æˆ1
 int set_n_bit_1(int a,int n){
 	return (a|(1<<n-1));
 }
-//¤ÏÂà¦ì¤¸0©Î1
+//åè½‰ä½å…ƒ0æˆ–1
 int set_n_bit_reverse(int a,int n){
 	return (a^(1<<n-1));
 }
-//±j¨î¼Ğ°O¦¨0
+//å¼·åˆ¶æ¨™è¨˜æˆ0
 int set_n_bit_0(int a,int n){
 	return (a&~(1<<n-1));
 }
-//§ä¨ì³Ì§C¦ìªº1
+//æ‰¾åˆ°æœ€ä½ä½çš„1
 int find_low_1_bit(int a){
 	return a&-a;
 }
-//¤QÂà¤G¶i¦ì 
+//æ‰¾åˆ°æœ€é«˜ä½çš„1
+int getHibit(int x){
+    int n = 31;
+    if (x >> 16 == 0){n = n - 16; x = x << 16;}
+    if (x >> 24 == 0){n = n - 8; x = x << 8;}
+    if (x >> 28 == 0){n = n - 4; x = x << 4;}
+    if (x >> 30 == 0){n = n - 2; x = x << 2;}
+    if (x >> 31 == 0){n = n - 1;}
+    return n+1;
+}
+//åè½‰äºŒé€²ä½ 
 void ten_to_two(int a){
 	int i=0,n,count[32];
 	n=a;
@@ -41,23 +51,25 @@ void ten_to_two(int a){
 int main(){
 	int x=18;
 	int i=0,a[32];
-	printf("¤Q¶i¦ì:");
+	printf("åé€²ä½:");
 	printf("%d\n",x);
-	//ªí¥Ü¦¨¤G¶i¦ì
-	//¨C¦¸°£¥H2¤§«áªº¾l¼Æ 
-	printf("¤G¶i¦ì:");
+	//è¡¨ç¤ºæˆäºŒé€²ä½
+	//æ¯æ¬¡é™¤ä»¥2ä¹‹å¾Œçš„é¤˜æ•¸ 
+	printf("äºŒé€²ä½:");
 	ten_to_two(x);
-	printf("²Ä3¦ì¼Ğ°O¦¨1:\n");
+	printf("ç¬¬3ä½æ¨™è¨˜æˆ1:\n");
 	ten_to_two(set_n_bit_1(x,3));
-	printf("²Ä2¦ì¼Ğ°O¦¨0:\n");
+	printf("ç¬¬2ä½æ¨™è¨˜æˆ0:\n");
 	ten_to_two(set_n_bit_0(x,2));
-	printf("¤ÏÂà²Ä2¦ì:\n");
+	printf("åè½‰ç¬¬2ä½:\n");
 	ten_to_two(set_n_bit_reverse(x,2));
 	
 	printf("*****************************\n");
 	printf("x=");
 	ten_to_two(x);
-	printf("³Ì§C¦ìªº1¦b²Ä %d ¦ì\n",find_low_1_bit(x));
-	printf("Á`¦@¦³ %d ­Ó 1\n",check_n_one(x));
+	printf("æœ€ä½ä½çš„1åœ¨ç¬¬ %d \n",find_low_1_bit(x));
+	printf("æœ€é«˜ä½çš„1åœ¨ç¬¬ %d \n",getHibit(x));
+	printf("ç¸½å…±æœ‰ %d å€‹1\n",check_n_one(x));
+
 	
 }
