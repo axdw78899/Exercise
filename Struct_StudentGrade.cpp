@@ -2,7 +2,7 @@
 #include<stdlib.h>
 
 int main(){
-	struct data
+	struct student
 	{
     	char name[10];
     	char sex;
