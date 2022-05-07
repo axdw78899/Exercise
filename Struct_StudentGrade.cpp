@@ -1,8 +1,7 @@
 #include<stdio.h>
 #include<stdlib.h>
-//«Ønode 
+
 int main(){
-	
 	struct data
 	{
     	char name[10];
@@ -12,6 +11,8 @@ int main(){
 	
 	printf("name:");
 	gets(student.name);
+	printf("sex:");
+	gets(student.sex);
 	printf("grade:");
 	scanf("%d",&student.grade);
 	
