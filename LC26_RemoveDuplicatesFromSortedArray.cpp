@@ -1,20 +1,30 @@
 //LC26 Remove Duplicates from Sorted Array
 //[0,1,1,2,2] 5 ->[0,1,2] 3 
-int removeDuplicates(int* nums, int numsSize){
-	//«Ø¥ß·sªº­p¼Æ¾¹ 
-    int count=0;//¼Æ¦³¦h¤Ö¬Û¦P 
-    int i=0;
-    int newSize=numsSize; 
-    for(i=0;i<numsSize-1;i++){
-        if(nums[i]==nums[i+1]){ //¬Û¦P,­p¼Æ 
-            count=count+1;
-            newSize=newSize-1;
+#include <stdio.h>
+#include <stdlib.h>
+int removeDuplicates(int* nums, int numsSize) {
+    //å»ºç«‹æ–°çš„è¨ˆæ•¸å™¨ 
+    int count = 0;//æ•¸æœ‰å¤šå°‘ç›¸åŒ 
+    int i = 0;
+    int newSize = numsSize;
+    for (i = 0; i < numsSize - 1; i++) {
+        if (nums[i] == nums[i + 1]) { //ç›¸åŒ,è¨ˆæ•¸ 
+            count = count + 1;
+            newSize = newSize - 1;
         }
-        else	//¤£¦P,©Ô¦^¥h 
+        else	//ä¸åŒ,æ‹‰å›å» 
         {
-            nums[i+1-count]=nums[i+1];
+            nums[i + 1 - count] = nums[i + 1];
         }
-        
+
     }
     return newSize;
+}
+int main() {
+    int arr[5] = {0,1,1,2,2 };
+    int Size = 5;
+
+    int ans = removeDuplicates(arr, 5);
+    printf("%d \n", ans);
+    return 0;
 }
