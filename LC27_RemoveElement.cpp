@@ -1,16 +1,27 @@
 //LC27 Remove Element
-//[3,2,2,3] 3 ->§â3§R±¼ ->  [2,2]
-int removeElement(int* nums, int numsSize, int val){
-    int count=0;
-    for(int i=0;i<numsSize;i++){
-        if(nums[i]==val)
-            count=count+1; //count¦³¦h¤Ö¼Æ³Q¬å 
+//[3,2,2,3] 3 ->æŠŠ3åˆªæŽ‰ ->  [2,2]
+#include <stdio.h>
+#include <stdlib.h>
+int removeElement(int* nums, int numsSize, int val) {
+    int count = 0;
+    for (int i = 0; i < numsSize; i++) {
+        if (nums[i] == val)
+            count = count + 1; //countæœ‰å¤šå°‘æ•¸è¢«ç  
         else
-            nums[i-count]=nums[i];//¥Î i-count ©Ô¦^ 
+            nums[i - count] = nums[i];//ç”¨ i-count æ‹‰å›ž 
     }
     //     [0,1,2,2,3,0,4,2] val=2
-	//	   [0,1,_,_,3,0,4,_] 
-	//count:0 0 1 2 2 2 2 3 
-	//i=0,1,4,5,6 -> i-count=0,1,2,3,4
-    return numsSize-count;//Á`¼Æ 
+    //	   [0,1,_,_,3,0,4,_] 
+    //count:0 0 1 2 2 2 2 3 
+    //i=0,1,4,5,6 -> i-count=0,1,2,3,4
+    return numsSize - count;//ç¸½æ•¸ 
+}
+int main() {
+    int arr[4] = {3,2,2,3};
+    int Size = 4;
+    int target = 3;
+
+    int ans = removeElement(arr, 4,3);
+    printf("%d \n", ans);
+    return 0;
 }
