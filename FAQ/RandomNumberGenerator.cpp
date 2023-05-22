@@ -1,24 +1,24 @@
-//¤£­«½Æ¶Ã¼Æ
-//¬~µP
+//ä¸é‡è¤‡äº‚æ•¸
+//æ´—ç‰Œ
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-//²£¥Í1~100¤£­«½Æªº¶Ã¼Æ
+//ç”¢ç”Ÿ1~100ä¸é‡è¤‡çš„äº‚æ•¸
 #define Size 10
 int main(){
 	int a[Size];
 	int pos,temp,i;
 	srand((unsigned)time(NULL));
-	//«Ø¥ß 
+	//å»ºç«‹ 
 	for(i = 0; i < Size;i++){
 		a[i]=i;
 		printf("%d ", a[i]);
 	}
 	printf("\n");
-	//¬~µP
+	//æ´—ç‰Œ
 	for(i = 0; i < Size;i++){
-    	pos = rand()*(Size-1)/RAND_MAX; //²£¥Í¤@²Õ0~(SIZE-1)ªº¶Ã¼Æ 
-  		temp = a[i];//§@ÀH¾÷¥æ´« 
+    	pos = rand()*(Size-1)/RAND_MAX; //ç”¢ç”Ÿä¸€çµ„0~(SIZE-1)çš„äº‚æ•¸ 
+  		temp = a[i];//ä½œéš¨æ©Ÿäº¤æ› 
   		a[i] = a[pos];
   		a[pos] = temp;
  	} 
