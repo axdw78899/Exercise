@@ -7,13 +7,13 @@ void quickSort(int[], int, int);
 int main(void) { 
     srand(time(NULL)); 
     int number[MAX] = {61,26,50,38,97,7,8}; 
-	   printf("±Æ§Ç«e¡G"); 
+	   printf("æ’åºå‰ï¼š"); 
     int i;  
     for(i = 0; i < MAX; i++) { 
         printf("%d ", number[i]); 
     } 
     quickSort(number, 0, MAX-1); 
-    printf("\n±Æ§Ç«á¡G"); 
+    printf("\næ’åºå¾Œï¼š"); 
     for(i = 0; i < MAX; i++) 
         printf("%d ", number[i]); 
     printf("\n"); 
@@ -22,16 +22,16 @@ int main(void) {
 } 
 
 void quickSort(int number[], int left, int right) { 
-//¼Æ¦C¤¤,¿ï¤@¼Æp
-//pªº¥ªÃä³£¤ñp¤p,pªº¥kÃä³£¤ñp¤j 
+//æ•¸åˆ—ä¸­,é¸ä¸€æ•¸p
+//pçš„å·¦é‚Šéƒ½æ¯”på°,pçš„å³é‚Šéƒ½æ¯”på¤§ 
     if(left < right) { 
         int s = number[(left+right)/2]; 
         int i = left - 1; 
         int j = right + 1; 
 
         while(1) { 
-            while(number[++i] < s) ;  // ¦V¥k§ä 
-            while(number[--j] > s) ;  // ¦V¥ª§ä 
+            while(number[++i] < s) ;  // å‘å³æ‰¾ 
+            while(number[--j] > s) ;  // å‘å·¦æ‰¾ 
             if(i >= j) 
                 break; 
             //printf("\n i=%d ,j=%d \n", i,j);
@@ -39,8 +39,8 @@ void quickSort(int number[], int left, int right) {
                 //for(int c = 0; c < MAX; c++) 
         		//	printf("%d ", number[c]); 
         } 
-        quickSort(number, left, i-1);   // ¹ï¥ªÃä¶i¦æ»¼°j 
-        quickSort(number, j+1, right);  // ¹ï¥kÃä¶i¦æ»¼°j 
+        quickSort(number, left, i-1);   // å°å·¦é‚Šé€²è¡Œéè¿´ 
+        quickSort(number, j+1, right);  // å°å³é‚Šé€²è¡Œéè¿´ 
     } 
 } 
 
