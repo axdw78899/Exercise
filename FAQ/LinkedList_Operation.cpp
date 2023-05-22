@@ -45,7 +45,9 @@ int main(){
 //建立 
 NODE *createList(int *arr,int len){
 	int i;
-	NODE *first,*current,*previous;
+	NODE* first = NULL;
+	NODE* previous = NULL;
+	NODE* current ;
 	for(i=0;i<len;i++){
 		current=(NODE*)malloc(sizeof(NODE));//配置記憶體空間
 		current->data=arr[i];//設定NODE的data
