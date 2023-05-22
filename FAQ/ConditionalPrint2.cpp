@@ -1,8 +1,8 @@
 #include<stdio.h>
 #include<stdlib.h>
 #define SIZE 3
-//¦C¦L1~10,°£¤Farray¸Ì­±ªº¼Æ
-//¥B¯à¨Ì·Ó°Ñ¼Æb,§O¦L¥X¸Ó°Ï¶¡ªº¼Æ¦r 
+//åˆ—å°1~10,é™¤äº†arrayè£¡é¢çš„æ•¸
+//ä¸”èƒ½ä¾ç…§åƒæ•¸b,åˆ¥å°å‡ºè©²å€é–“çš„æ•¸å­— 
 //0 1 2
 //3 4 5
 //6 7 8
@@ -16,8 +16,8 @@ int main(){
 	
 	return 0;
 } 
-//¦pªG¬Û²Å,array¤¸¯À©¹¤U,¤£°µ¨Æ;
-//¦pªG¤£¬Û²Å,print
+//å¦‚æœç›¸ç¬¦,arrayå…ƒç´ å¾€ä¸‹,ä¸åšäº‹;
+//å¦‚æœä¸ç›¸ç¬¦,print
 void function(int *in, int size)
 {
     int *ptr = in;
