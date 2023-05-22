@@ -14,13 +14,13 @@ void Bubblesort(int arr[],int n){
 }
 int main(void) { 
     int number[MAX] = {61,26,50,38,97,7,8}; 
-	   printf("�Ƨǫe�G"); 
+	   printf("±Æ§Ç«e¡G"); 
     int i;  
     for(i = 0; i < MAX; i++) { 
         printf("%d ", number[i]); 
     } 
     Bubblesort(number,MAX); 
-    printf("\n�Ƨǫ�G"); 
+    printf("\n±Æ§Ç«á¡G"); 
     for(i = 0; i < MAX; i++){
     	printf("%d ", number[i]); 
 	}
