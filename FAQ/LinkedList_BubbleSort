@@ -14,9 +14,9 @@ NODE* createList(int*, int);
 void printList(NODE*);
 //釋放
 void freeList(NODE*);
-NODE* deleteNODE(NODE* first, NODE* node);
 //排序法
 void bubblesort(NODE* first);
+//SWAP
 void swap(int *a,int *b) {
 	int temp;
 	temp = *a;
