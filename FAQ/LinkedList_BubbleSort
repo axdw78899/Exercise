@@ -1,0 +1,104 @@
+#include<stdio.h>
+#include<stdlib.h>
+//建node 
+struct node
+{
+	int data;
+	struct node* next;
+};
+typedef struct node NODE;//struct node定義成NODE型態
+//function:
+//建立
+NODE* createList(int*, int);
+//列印
+void printList(NODE*);
+//釋放
+void freeList(NODE*);
+NODE* deleteNODE(NODE* first, NODE* node);
+//排序法
+void bubblesort(NODE* first);
+void swap(int *a,int *b) {
+	int temp;
+	temp = *a;
+	*a = *b;
+	*b = temp;
+}
+int main() {
+	NODE* first; 
+	NODE* node;
+	int arr[] = {1,3,2,4,9,8,7,10,12,10};
+	first = createList(arr, sizeof(arr)/ sizeof(arr[0])); //建立串列 
+	printList(first);
+
+	bubblesort(first);
+	printList(first);
+
+	freeList(first);
+
+	return 0;
+}
+//建立 
+NODE* createList(int* arr, int len) {
+	int i;
+	NODE* first = NULL;
+	NODE* previous = NULL;
+	NODE* current ;
+	for (i = 0; i < len; i++) {
+		current = (NODE*)malloc(sizeof(NODE));//配置記憶體空間
+		current->data = arr[i];//設定NODE的data
+		if (i == 0)
+			first = current;
+		else
+			previous->next = current;
+		current->next = NULL;
+		previous = current;
+
+	}
+	return first;
+}
+//列印 
+void printList(NODE* first) {
+	NODE* node = first;//指向第一個NODE
+	if (first == NULL)//如果是空的,印出 沒東西 
+		printf("List is empty\n");
+	else//否則 走訪 
+	{
+		while (node != NULL)
+		{
+			printf("%3d ", node->data);
+			node = node->next;
+		}
+		printf("\n");
+	}
+}
+//釋放記憶體
+void freeList(NODE* first) {
+	NODE* current, * tmp;
+	current = first;// current指向第一個node 
+	while (current != NULL)
+	{
+		tmp = current;//暫存目前的node 
+		current = current->next;//將current指向下一個node 
+		free(tmp);//釋放 
+	}
+}
+void bubblesort(NODE* first) {
+	if (first == NULL)
+		return;
+	int i, swapped;
+	NODE* ptr;
+	NODE* tail = NULL;
+	do {
+		swapped = 0;
+		ptr = first;
+		while (ptr->next != tail) {
+			if (ptr->data > ptr->next->data) {
+				swap(ptr, ptr->next);
+				swapped = 1;
+			}
+			ptr = ptr->next;
+		}
+		tail = ptr;
+	} while (swapped);
+
+}
