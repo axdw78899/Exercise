@@ -1,0 +1,35 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdint.h>
+
+//Input:  00000010100101000001111010011100
+//Output: 00111001011110000010100101000000
+//Explanation: 
+//The input binary string 00000010100101000001111010011100 represents the unsigned integer 43261596, 
+//so return 964176192 which its binary representation is 00111001011110000010100101000000.
+
+// 00101 -> 10100
+//  
+uint32_t reverseBits(uint32_t n) {
+    uint32_t m = 0;
+    for (int i = 0; i < 32; i++) {
+        m <<= 1; // 00000
+        m |= (n & 1); // 00000 | 00001 = 00001 
+        n >>= 1; // 00010
+    }
+    return m;
+}
+
+//m=00001
+//m=00010
+//m=00101
+//m=01010
+//m=10100
+
+int main() {
+    uint32_t a = 43261596;
+    printf("%d",reverseBits(a));
+
+
+    return 0;
+}
