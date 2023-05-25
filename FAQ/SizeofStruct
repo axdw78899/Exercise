@@ -1,0 +1,26 @@
+#include <stdio.h>
+#include <string.h>
+#include <stdint.h>
+
+int main() {
+	struct data {
+		char a; //1
+		long long b;//8
+		int c;//4
+		char d[3];//1*3
+		
+	}s;
+	struct data *p=&s;
+	printf("sizeof(s)=%d\n", sizeof(s));
+
+	printf("&s=%p\n", p);
+	printf("&s+1=%p\n", p+1);
+
+	struct data* pp = 0;
+	printf("sizeof(s)=%d\n", pp+1);
+	
+
+	return 0;
+}
+
+
