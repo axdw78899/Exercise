@@ -1,49 +1,38 @@
 #include<stdio.h>
 #define MAX 7
-void Bubblesort(int *arr, int n) {
-	int i, j, tmp;
-	for (i = 0; i < n - 1; i++) {
-		for (j = 0; j < n - i - 1; j++) {
-			if (arr[j] > arr[j + 1]) {
-				tmp = arr[j];
-				arr[j] = arr[j + 1];
-				arr[j + 1] = tmp;
-			}
-		}
-	}
-}
-int BS(int* arr, int p, int low,int high) {
+
+int BS(int* arr, int p ,int arrsize) {
+	int low = 0;
+	int high = arrsize-1;
+
 	while (low <= high) {
-		int mid = low + (high - low) / 2;
-		if (arr[mid] == p) {
-			return mid;
-		}
+		printf("low=%d\n", low);
+		printf("high=%d\n", high);
+
+
+		int mid = low + (high - low) / 2; //用( low + high ) / 2 會 OVERFLOW
+		printf("mid=%d\n\n", mid);
 		if (arr[mid] < p) {
 			low = mid + 1;
 		}
 		else {
 			high = mid - 1;
 		}
+
 	}
 
-	return -1;
+	return low;//避免重複元素出現
 }
+//BS本質:維護low
 int main(void) {
-	int number[MAX] = { 61,26,50,38,97,7,8 };
-	printf("Before:");
+	int number[MAX] = { 0,1,2,2,3,3,4 };
+
 	int i;
 	for (i = 0; i < MAX; i++) {
 		printf("%d ", number[i]);
 	}
-	Bubblesort(number, MAX);
-	printf("\nAfter:");
-	for (i = 0; i < MAX; i++) {
-		printf("%d ", number[i]);
-	}
 	printf("\n");
-
-	if(BS(number, 38, 0, 7) != -1)
-		printf("%d \n", BS(number, 38, 0, 7));
+	printf("BS=%d \n", BS(number, 3,7));
 
 	return 0;
 }
