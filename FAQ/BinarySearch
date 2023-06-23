@@ -20,8 +20,10 @@ int BS(int* arr, int p ,int arrsize) {
 		}
 
 	}
-
-	return low;//避免重複元素出現
+	if (arr[low] == p)
+		return low;
+	else
+		return -1;
 }
 //BS本質:維護low
 int main(void) {
