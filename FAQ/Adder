@@ -1,0 +1,23 @@
+#include <stdio.h>
+#include <string.h>
+
+int Add(int num1, int num2)
+{
+	while (num2 != 0){
+		int tmp = num1 ^ num2;//不考慮進位
+		printf("a=%d b=%d tmp=%d num1 & num2=%d\n", num1, num2,tmp, num1 & num2);
+		num2 = (num1 & num2) << 1;//考慮進位
+		num1 = tmp;
+	}
+	return num1;
+}
+
+
+int main() {
+	//5 :101
+	//17 :10001
+	printf("%d ", Add(5,17));
+
+
+	return 0;
+}
