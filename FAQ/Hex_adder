@@ -1,0 +1,17 @@
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+	int v1 = 0x00001111;
+	int v2 = 0x00001202;
+
+	int v;
+	v = v1 & (~v2);
+	//00001111 & eeee fded ->111
+	printf("%x\n", v);
+
+	v = v | v2;
+	//111 1202 ->1313
+	printf("%x", v);
+	return 0;
+}
