@@ -1,0 +1,10 @@
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+	unsigned int N = 0xaabbccdd;
+	unsigned char* M;
+	M = &N;
+	printf("%x", *M);
+	return 0;
+}
